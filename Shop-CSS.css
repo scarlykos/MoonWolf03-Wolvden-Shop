@@ -1,0 +1,171 @@
+/* Dunkelgrünes Wald-Design für Wolvden Trading Post */
+:root {
+    --bg-dark: #080e0a;         /* Sehr dunkler Waldboden-Ton */
+    --card-bg: #121b15;         /* Dunkles Tannengrün für Boxen */
+    --border-color: #213227;    /* Sanftes Grün für Abgrenzungen */
+    --forest-accent: #2e4d39;   /* Sattes Moosgrün für Buttons */
+    --gold: #d4a373;            /* Warmes Herbst-Gold für Highlights */
+    --text-color: #e3ebd7;      /* Helles, weiches Salbeigrün für gute Lesbarkeit */
+    --text-muted: #9bb0a3;      /* Dezentes Graugrün */
+}
+
+body {
+    background-color: var(--bg-dark);
+    color: var(--text-color);
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    margin: 0;
+    padding: 0;
+    line-height: 1.6;
+}
+
+.shop-container {
+    max-width: 1100px;
+    margin: 40px auto;
+    padding: 0 20px;
+}
+
+/* Header */
+.shop-header {
+    text-align: center;
+    margin-bottom: 30px;
+    padding-bottom: 20px;
+    border-bottom: 2px solid var(--forest-accent);
+}
+
+.shop-header h1 {
+    color: #ffffff;
+    font-size: 2.2rem;
+    margin-bottom: 10px;
+    text-shadow: 0 0 10px rgba(46, 77, 57, 0.6);
+}
+
+.welcome-text {
+    color: var(--text-muted);
+    font-size: 1.05rem;
+}
+
+/* Info Box */
+.info-box {
+    background-color: var(--card-bg);
+    border: 1px solid var(--border-color);
+    border-radius: 8px;
+    padding: 25px;
+    margin-bottom: 40px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.5);
+}
+
+.info-box h2 {
+    color: var(--gold);
+    margin-top: 0;
+    font-size: 1.35rem;
+}
+
+.note {
+    background-color: rgba(212, 163, 115, 0.08);
+    border-left: 3px solid var(--gold);
+    padding: 10px 15px;
+    margin-top: 15px;
+    border-radius: 0 4px 4px 0;
+}
+
+/* Kategorien Überschriften */
+.category-section h2 {
+    color: #ffffff;
+    font-size: 1.4rem;
+    margin-bottom: 20px;
+    letter-spacing: 1px;
+}
+
+/* Grid-System */
+.wolf-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 30px;
+}
+
+/* Wolf-Card Styling */
+.wolf-card {
+    background-color: var(--card-bg);
+    border: 1px solid var(--border-color);
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.3);
+    transition: transform 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.wolf-card:hover {
+    transform: translateY(-4px);
+    border-color: var(--gold);
+    box-shadow: 0 8px 20px rgba(212, 163, 115, 0.15);
+}
+
+/* Bild umschließender Link */
+.wolf-img-link {
+    display: block;
+    width: 100%;
+    overflow: hidden;
+    background-color: #050805;
+}
+
+.wolf-image-container {
+    width: 100%;
+    aspect-ratio: 4 / 3; /* Behält das Wolvden Bildseitenverhältnis bei */
+    overflow: hidden;
+}
+
+.wolf-image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+    transition: transform 0.4s ease;
+}
+
+.wolf-img-link:hover .wolf-image {
+    transform: scale(1.03);
+}
+
+/* Text-Inhalte in den Karten */
+.wolf-info {
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+}
+
+.wolf-info h3 {
+    margin: 0 0 10px 0;
+    font-size: 1.15rem;
+    color: #ffffff;
+}
+
+.price {
+    font-size: 1.05rem;
+    margin-bottom: 15px;
+    color: var(--text-muted);
+}
+
+.price span {
+    color: var(--gold);
+    font-weight: bold;
+}
+
+/* Buttons */
+.btn-view {
+    display: block;
+    text-align: center;
+    background-color: var(--forest-accent);
+    color: #ffffff;
+    padding: 10px;
+    text-decoration: none;
+    border-radius: 5px;
+    font-weight: bold;
+    transition: background-color 0.2s, transform 0.1s;
+}
+
+.btn-view:hover {
+    background-color: #3b6349;
+}
+
+.btn-view:active {
+    transform: scale(0.98);
+}
