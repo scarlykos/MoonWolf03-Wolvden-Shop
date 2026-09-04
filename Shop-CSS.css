@@ -1,147 +1,145 @@
-/* Dunkelgrünes Wald-Design für Wolvden Trading Post */
 :root {
-    --bg-dark: #080e0a;         /* Sehr dunkler Waldboden-Ton */
-    --card-bg: #121b15;         /* Dunkles Tannengrün für Boxen */
-    --border-color: #213227;    /* Sanftes Grün für Abgrenzungen */
-    --forest-accent: #2e4d39;   /* Sattes Moosgrün für Buttons */
-    --gold: #d4a373;            /* Warmes Herbst-Gold für Highlights */
-    --text-color: #e3ebd7;      /* Helles, weiches Salbeigrün für gute Lesbarkeit */
-    --text-muted: #9bb0a3;      /* Dezentes Graugrün */
+    --bg-dark: #071324;
+    --card-bg: #0b1e36;
+    --border-color: #1a3a60;
+    --text-color: #e2e8f0;
+    --gold: #dfb34f;
+    --gold-hover: #f5cf73;
+    --padding-mobile: 15px;
+    --padding-desktop: 30px;
+}
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
 }
 
 body {
-    background-color: var(--bg-dark);
-    color: var(--text-color);
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    margin: 0;
-    padding: 0;
+    background-color: #111; /* Outer background fallback */
+    color: var(--text-color);
     line-height: 1.6;
+    padding: 20px 10px;
 }
 
+/* Main Container - Limits width on PC, expands on mobile */
 .shop-container {
-    max-width: 1100px;
-    margin: 40px auto;
-    padding: 0 20px;
+    max-width: 90%;
+    margin: 0 auto;
+    background-color: var(--bg-dark);
+    border: 2px solid var(--border-color);
+    border-radius: 12px;
+    padding: var(--padding-mobile);
+    box-shadow: 0 10px 30px rgba(0,0,0,0.5);
 }
 
 /* Header */
 .shop-header {
     text-align: center;
-    margin-bottom: 30px;
+    margin-bottom: 25px;
+    border-bottom: 1px solid var(--border-color);
     padding-bottom: 20px;
-    border-bottom: 2px solid var(--forest-accent);
 }
 
 .shop-header h1 {
-    color: #ffffff;
-    font-size: 2.2rem;
-    margin-bottom: 10px;
-    text-shadow: 0 0 10px rgba(46, 77, 57, 0.6);
+    color: var(--gold);
+    font-size: 1.8rem;
+    margin-bottom: 15px;
 }
 
 .welcome-text {
-    color: var(--text-muted);
-    font-size: 1.05rem;
+    font-size: 1rem;
+    max-width: 800px;
+    margin: 0 auto;
 }
 
 /* Info Box */
 .info-box {
-    background-color: var(--card-bg);
-    border: 1px solid var(--border-color);
+    background-color: rgba(255, 255, 255, 0.03);
+    border: 1px dashed var(--gold);
     border-radius: 8px;
-    padding: 25px;
-    margin-bottom: 40px;
-    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.5);
+    padding: 20px;
+    margin-bottom: 30px;
 }
 
 .info-box h2 {
     color: var(--gold);
-    margin-top: 0;
-    font-size: 1.35rem;
+    font-size: 1.2rem;
+    margin-bottom: 10px;
 }
 
-.note {
-    background-color: rgba(212, 163, 115, 0.08);
-    border-left: 3px solid var(--gold);
-    padding: 10px 15px;
+.info-box .note {
     margin-top: 15px;
-    border-radius: 0 4px 4px 0;
+    color: #a0aec0;
+    font-style: italic;
 }
 
-/* Kategorien Überschriften */
+/* Categories */
 .category-section h2 {
-    color: #ffffff;
-    font-size: 1.4rem;
+    color: var(--gold);
+    border-bottom: 2px solid var(--gold);
+    padding-bottom: 5px;
     margin-bottom: 20px;
+    font-size: 1.4rem;
     letter-spacing: 1px;
 }
 
-/* Grid-System */
+/* THE GRID - Handles responsiveness dynamically */
 .wolf-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-    gap: 30px;
+    grid-template-columns: 1fr; /* 1 column on mobile phones */
+    gap: 20px;
 }
 
-/* Wolf-Card Styling */
+/* Wolf Card Style */
 .wolf-card {
     background-color: var(--card-bg);
     border: 1px solid var(--border-color);
     border-radius: 8px;
     overflow: hidden;
-    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.3);
-    transition: transform 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease;
+    display: flex;
+    flex-direction: column;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
 }
 
 .wolf-card:hover {
-    transform: translateY(-4px);
-    border-color: var(--gold);
-    box-shadow: 0 8px 20px rgba(212, 163, 115, 0.15);
-}
-
-/* Bild umschließender Link */
-.wolf-img-link {
-    display: block;
-    width: 100%;
-    overflow: hidden;
-    background-color: #050805;
+    transform: translateY(-2px);
+    box-shadow: 0 5px 15px rgba(0,0,0,0.3);
 }
 
 .wolf-image-container {
     width: 100%;
-    aspect-ratio: 4 / 3; /* Behält das Wolvden Bildseitenverhältnis bei */
-    overflow: hidden;
+    background-color: #030a14;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 150px;
 }
 
 .wolf-image {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
+    max-width: 100%;
+    height: auto;
     display: block;
-    transition: transform 0.4s ease;
 }
 
-.wolf-img-link:hover .wolf-image {
-    transform: scale(1.03);
-}
-
-/* Text-Inhalte in den Karten */
 .wolf-info {
-    padding: 20px;
+    padding: 15px;
+    text-align: center;
     display: flex;
     flex-direction: column;
+    flex-grow: 1;
+    justify-content: space-between;
 }
 
 .wolf-info h3 {
-    margin: 0 0 10px 0;
-    font-size: 1.15rem;
-    color: #ffffff;
+    font-size: 1.1rem;
+    margin-bottom: 10px;
 }
 
 .price {
-    font-size: 1.05rem;
+    font-size: 1rem;
     margin-bottom: 15px;
-    color: var(--text-muted);
 }
 
 .price span {
@@ -149,23 +147,55 @@ body {
     font-weight: bold;
 }
 
-/* Buttons */
+/* Button */
 .btn-view {
-    display: block;
-    text-align: center;
-    background-color: var(--forest-accent);
-    color: #ffffff;
-    padding: 10px;
+    display: inline-block;
+    background-color: var(--gold);
+    color: #000;
     text-decoration: none;
-    border-radius: 5px;
     font-weight: bold;
-    transition: background-color 0.2s, transform 0.1s;
+    padding: 10px 20px;
+    border-radius: 5px;
+    transition: background-color 0.2s;
 }
 
 .btn-view:hover {
-    background-color: #3b6349;
+    background-color: var(--gold-hover);
 }
 
-.btn-view:active {
-    transform: scale(0.98);
+/* ==========================================
+   MEDIA QUERIES (Tablets & Desktops)
+   ========================================== */
+
+/* From Tablet width upwards (768px) */
+@media (min-width: 768px) {
+    .shop-container {
+        padding: var(--padding-desktop);
+        margin: 20px auto;
+    }
+
+    .shop-header h1 {
+        font-size: 2.4rem;
+    }
+
+    /* Wolf cards layout scales to 2 columns on tablet/PC */
+    .wolf-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+/* From Desktop width upwards (1024px) */
+@media (min-width: 1024px) {
+    .wolf-grid {
+        grid-template-columns: repeat(3, 1fr);
+    }
+
+    /* Make wolf images half the width on desktop */
+    .wolf-image {
+        width: 100%;        /* image will be half the container width */
+        max-width: none;   /* override the previous max-width:100% */
+        height: auto;
+        margin: 0 auto;    /* center the image inside the container */
+        display: block;
+    }
 }
