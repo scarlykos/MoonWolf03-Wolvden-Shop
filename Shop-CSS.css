@@ -1,10 +1,11 @@
 :root {
-    --bg-dark: #071324;
-    --card-bg: #0b1e36;
-    --border-color: #1a3a60;
-    --text-color: #e2e8f0;
-    --gold: #dfb34f;
-    --gold-hover: #f5cf73;
+    --bg-dark: #080e0a;         /* Sehr dunkler Waldboden-Ton */
+    --card-bg: #121b15;         /* Dunkles Tannengrün für Boxen */
+    --border-color: #213227;    /* Sanftes Grün für Abgrenzungen */
+    --forest-accent: #2e4d39;   /* Sattes Moosgrün für Buttons */
+    --gold: #d4a373;            /* Warmes Herbst-Gold für Highlights */
+    --text-color: #e3ebd7;      /* Helles, weiches Salbeigrün für gute Lesbarkeit */
+    --text-muted: #9bb0a3;      /* Dezentes Graugrün */
     --padding-mobile: 15px;
     --padding-desktop: 30px;
 }
@@ -17,10 +18,11 @@
 
 body {
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    background-color: #111; /* Outer background fallback */
+    background-color: var(--bg-dark); /* Outer background fallback */
     color: var(--text-color);
     line-height: 1.6;
-    padding: 20px 10px;
+    margin: 0;
+    padding: 0;
 }
 
 /* Main Container - Limits width on PC, expands on mobile */
@@ -52,11 +54,12 @@ body {
     font-size: 1rem;
     max-width: 800px;
     margin: 0 auto;
+    color: var(--text-muted);
 }
 
 /* Info Box */
 .info-box {
-    background-color: rgba(255, 255, 255, 0.03);
+    background-color: rgba(255, 255, 255, 0.02);
     border: 1px dashed var(--gold);
     border-radius: 8px;
     padding: 20px;
@@ -71,14 +74,14 @@ body {
 
 .info-box .note {
     margin-top: 15px;
-    color: #a0aec0;
+    color: var(--text-muted);
     font-style: italic;
 }
 
 /* Categories */
 .category-section h2 {
     color: var(--gold);
-    border-bottom: 2px solid var(--gold);
+    border-bottom: 2px solid var(--border-color);
     padding-bottom: 5px;
     margin-bottom: 20px;
     font-size: 1.4rem;
@@ -100,27 +103,43 @@ body {
     overflow: hidden;
     display: flex;
     flex-direction: column;
-    transition: transform 0.2s ease, box-shadow 0.2s ease;
+    transition: transform 0.2s ease, box-shadow 0.2s ease, border-color 0.2s ease;
 }
 
 .wolf-card:hover {
-    transform: translateY(-2px);
-    box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+    transform: translateY(-4px);
+    border-color: var(--gold);
+    box-shadow: 0 8px 25px rgba(212, 163, 115, 0.15);
+}
+
+/* Umschließender Bild-Link für Hover-Effekt */
+.wolf-img-link {
+    display: block;
+    width: 100%;
+    overflow: hidden;
+    background-color: #050805;
 }
 
 .wolf-image-container {
     width: 100%;
-    background-color: #030a14;
+    background-color: #050805;
     display: flex;
     justify-content: center;
     align-items: center;
     min-height: 150px;
+    overflow: hidden;
 }
 
 .wolf-image {
     max-width: 100%;
     height: auto;
     display: block;
+    transition: transform 0.4s ease;
+}
+
+/* Bild-Zoom beim Hovern über die Karte */
+.wolf-card:hover .wolf-image {
+    transform: scale(1.03);
 }
 
 .wolf-info {
@@ -135,11 +154,13 @@ body {
 .wolf-info h3 {
     font-size: 1.1rem;
     margin-bottom: 10px;
+    color: #ffffff;
 }
 
 .price {
     font-size: 1rem;
     margin-bottom: 15px;
+    color: var(--text-muted);
 }
 
 .price span {
@@ -150,18 +171,23 @@ body {
 /* Button */
 .btn-view {
     display: inline-block;
-    background-color: var(--gold);
-    color: #000;
+    background-color: var(--forest-accent);
+    color: #ffffff;
     text-decoration: none;
     font-weight: bold;
     padding: 10px 20px;
     border-radius: 5px;
-    transition: background-color 0.2s;
+    transition: background-color 0.2s, transform 0.1s;
 }
 
 .btn-view:hover {
-    background-color: var(--gold-hover);
+    background-color: #3b6349;
 }
+
+.btn-view:active {
+    transform: scale(0.98);
+}
+
 
 /* ==========================================
    MEDIA QUERIES (Tablets & Desktops)
